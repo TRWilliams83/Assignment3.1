@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- Assignment 3.1-->
+    <title>Strings</title>
+    <!--- Linking that stylesheet-->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <script>
+        function checkPalindrome(string) {
+            /// const from lecture used as starting point
+            /// splits the string, reverses it and compares it to the original input
+            const stringValue = string.split('');
+            const reverseStringValues = stringValue.slice().reverse();
+            const joinedString = reverseStringValues.join('');
+            /// if the newly made string (reverse) is = to the original input it returns true
+            if (string === joinedString) {
+                return true;
+            } else {
+            /// if the newly made string does not it returns false    
+                return false;
+            }
+        }
+        
+        let continueChecking = true;
+        
+        while (continueChecking) {
+            const string = prompt("Enter a string:");
+        
+            if (string === null) {
+                /// Cancel ='s false and will end loop'
+                continueChecking = false;
+            } else {
+                /// Continues to function
+                if (checkPalindrome(string)) {
+                    /// If string is True alert notifies 
+                    alert("This '" + string + "' is a palindrome.");
+                } else {
+                    /// If string is False alert notifies 
+                    alert("This '" + string + "' is not a palindrome.");
+                }
+                
+                const choice = confirm("Do you want to check another word?");
+                /// represents the user's choice, Ok represents true and reloops to the start, Cancel represents false and ends the cycle
+                if (!choice) {
+                    continueChecking = false;
+                }
+            }
+        }
+        </script>
+        
+</body>
+</html>
